@@ -6,13 +6,6 @@ This is the ruby version of the popular tic-tac-toe game.
 
 ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?&style=for-the-badge&logo=ruby&logoColor=white)
 
-## Getting Started
-
-Under-active development.
-
-## Building With
-
-![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?&style=for-the-badge&logo=ruby&logoColor=white)
 
 ## Getting Started
 
