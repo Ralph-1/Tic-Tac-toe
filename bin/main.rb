@@ -12,13 +12,11 @@ player2 = gets.chomp
 # after entering the name we will assign the sign to player
 puts "#{player2} your symbol is O "
 
-puts '-------------'
 puts '| 1 | 2 | 3 |'
 puts '-------------'
 puts '| 4 | 5 | 6 |'
 puts '-------------'
 puts '| 7 | 8 | 9 |'
-puts '-------------'
 
 puts "It is your move #{player1}, Select the position"
 # we will save the position and sign
