@@ -93,5 +93,3 @@ loop do
     break
   end
 end
-
-# rubocop:enable Metrics/BlockLength
