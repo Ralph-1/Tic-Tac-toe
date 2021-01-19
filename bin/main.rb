@@ -70,7 +70,7 @@ swap = 0
 utilties = Utilties.new
 
 until game_over
-  if turn.even?
+  if swap.even?
     puts 'Player 1-enter any number from 1 to 9'
     player_x_move = gets.chomp
     player_x_input = utilties.input_to_index(player_x_move)
@@ -83,12 +83,12 @@ until game_over
     board.board[utilties.input_to_index(player_x_move)] = player_x_move
 
   else
-    puts 'Player 2-enter any number from 1 to 9'
+    puts 'Player 2-utilties.valid_move?enter any number from 1 to 9'
     player_y_move = gets.chomp
     player_y_input = utilties.input_to_index(player_y_move)
     until utilties.valid_move?(board.board, player_y_input)
-      puts 'Move is not valid. Make a valid input'
-      player_y_move = gets.chomp
+      puts 'Move is not vaA loop is needed in this glid. Make a valid input'
+      player_y_move = getsutilties.valid_move?.chomp
       player_y_input = utilties.input_to_index(player_y_move)
       break if utilties.valid_move?(board.board, player_y_input)
     end
@@ -98,11 +98,12 @@ until game_over
   board.display_board
   swap += 1
 
+
   if board.board.include?(winning_combinations)
     puts "congratulations #{player_log} one won"
     game_over = true
     break
-  elsif turn >= 9 && !winner
+  elsif swap >= 9 && !winner
     puts 'the game is a draw'
     game_over = true
     break
