@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 # rubocop:disable Metrics/BlockNesting
-require_relative 'board'
 puts 'Welcome to Tic Tac Toe'
 puts 'A game created by Ralph and Prerna'
 
@@ -14,7 +13,7 @@ def player_log(player_name)
     player_name = gets.chomp
   end
 
-  player_nameplayer_name
+  player_name
 end
 
 puts 'player one please enter your name!'
@@ -58,6 +57,18 @@ winning_combinations = [
   [1, 5, 9],
   [3, 5, 7]
 ]
+
+class board
+  @myboard = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+
+  def display_board
+    puts " #{@myboard[0]} | #{@myboard[1]} | #{@myboard[2]} "
+    puts '-----------'
+    puts " #{@myboard[3]} | #{@myboard[4]} | #{@myboard[5]} "
+    puts '-----------'
+    puts " #{@myboard[6]} | #{@myboard[7]} | #{@myboard[8]} "
+  end
+end
 
 # After setting up the board the game will then begin
 
