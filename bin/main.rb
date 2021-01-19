@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 # rubocop:disable Metrics/BlockNesting
+require_relative 'board'
 puts 'Welcome to Tic Tac Toe'
 puts 'A game created by Ralph and Prerna'
 
@@ -98,7 +99,6 @@ until game_over
   board.display_board
   swap += 1
 
-
   if board.board.include?(winning_combinations)
     puts "congratulations #{player_log} one won"
     game_over = true
@@ -110,4 +110,7 @@ until game_over
   end
 
 end
+
+TicTacToe = TicTacToe.new
+TicTacToe.excute
 # rubocop:enable Metrics/BlockNesting
