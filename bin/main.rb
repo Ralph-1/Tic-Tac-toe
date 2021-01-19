@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-#!/usr/bin/env ruby
-
 puts 'Welcome to Tic Tac Toe'
 puts 'A game created by Ralph and Prerna'
 
@@ -97,4 +95,3 @@ loop do
 end
 
 # rubocop:enable Metrics/BlockLength
-
