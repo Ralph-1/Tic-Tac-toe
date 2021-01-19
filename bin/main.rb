@@ -58,25 +58,20 @@ winning_combinations = [
   [3, 5, 7]
 ]
 
-class board
-  @myboard = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-
-  def display_board
-    puts " #{@myboard[0]} | #{@myboard[1]} | #{@myboard[2]} "
-    puts '-----------'
-    puts " #{@myboard[3]} | #{@myboard[4]} | #{@myboard[5]} "
-    puts '-----------'
-    puts " #{@myboard[6]} | #{@myboard[7]} | #{@myboard[8]} "
-  end
-end
-
 # After setting up the board the game will then begin
 
 winner = false
 
+def display_board
+  puts ' 1 | 2 | 3 '
+  puts '-----------'
+  puts ' 4 | 5 | 6 '
+  puts '-----------'
+  puts ' 7 | 8 | 9 '
+end
+
 # The board will be shown for the players
-board = Board.new
-board.display_board
+puts display_board
 game_over = false
 swap = 0
 utilties = Utilties.new
