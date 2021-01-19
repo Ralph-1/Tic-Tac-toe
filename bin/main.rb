@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+# rubocop:disable Metrics/BlockNesting
 puts 'Welcome to Tic Tac Toe'
 puts 'A game created by Ralph and Prerna'
 
@@ -66,25 +66,40 @@ winner = false
 board = Board.new
 board.display_board
 game_over = false
-turn = 0
+swap = 0
+utilties = Utilties.new
 
-loop do
-  puts "#{player_x} it's your move"
-  # until move is valid
-  move = gets.chomp
-  # puts 'move is not valid' unless move.is_valid?
-  puts "#{player_log} your  move was : #{move}"
-  # displays move on the board.
+until game_over
+  if turn.even?
+    puts 'Player 1-enter any number from 1 to 9'
+    player_x_move = gets.chomp
+    player_x_input = utilties.input_to_index(player_x_move)
+    until utilties.valid_move?(board.board, player_x_input)
+      puts 'Move is not valid. Make a valid input'
+      player_x_move = gets.chomp
+      player_x_input = utilties.input_to_index(player_x_move)
+      break if utilties.valid_move?(board.board, player1_input)
+    end
+    board.board[utilties.input_to_index(player_x_move)] = player_x_move
 
-  puts "#{player_y} it's your move"
-  # until move is valid
-  move = gets.chomp
-  # puts 'move is not valid' unless move.is_valid?
-  puts "#{player_log} your  move was : #{move}"
-  # displays move on the board.
+  else
+    puts 'Player 2-enter any number from 1 to 9'
+    player_y_move = gets.chomp
+    player_y_input = utilties.input_to_index(player_y_move)
+    until utilties.valid_move?(board.board, player_y_input)
+      puts 'Move is not valid. Make a valid input'
+      player_y_move = gets.chomp
+      player_y_input = utilties.input_to_index(player_y_move)
+      break if utilties.valid_move?(board.board, player_y_input)
+    end
+    board.board[utilties.input_to_index(player_y_move)] = player_y_move
+
+  end
+  board.display_board
+  swap += 1
 
   if board.board.include?(winning_combinations)
-    puts "congratulations #{player_log} won"
+    puts "congratulations #{player_log} one won"
     game_over = true
     break
   elsif turn >= 9 && !winner
@@ -92,4 +107,6 @@ loop do
     game_over = true
     break
   end
+
 end
+# rubocop:enable Metrics/BlockNesting
