@@ -1,18 +1,15 @@
 # Method to convert users input to match the position on the board
-
 class Helpers
-  def player_move(user_input)
-    user_input.to_i - 1
-  end
-  
-  def move(board, player_move, player)
-    board[player_move] = player
-  end 
-
-  def position_taken? 
-    if board[player_move] == (board[player_move] == '') || (board[player_move] == ' ') || (board[player_move] == nil)
+  def position_taken?(board, index) 
+    if board[index] == (board[index] == '') || (board[index] == ' ') || (board[index] == nil)
       false
     else
       true
     end
+  end
+
+  def valid_move?(board, index)
+    index.between?(0, 8) && !position_taken?(board, index)
+  end
+
 end
