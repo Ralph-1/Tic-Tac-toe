@@ -13,12 +13,15 @@ class TicTacToe
 
   def start
     puts 'Welcome to TIC-TAC-TOE'
+    puts ''
     sleep 1
     puts 'A simple game developed by Ralph and Prerna'
+    puts ''
     sleep 1
   end
 
   def instructions
+    sleep 1
     puts "You will have a 3x3 board and player 1 will have the first turn\n"
     puts "When it's your turn enter the number of the square that you want to play (between 1 and 9)"
     puts "Don't choose squares that are already occupied\n\n"
@@ -32,14 +35,16 @@ class TicTacToe
     puts "\nThe winner is the first one to form a line with 3 symbols vertically, horizontally or diagonally\n\n"
     puts 'Press Enter to continue'
     gets.chomp
+    system 'clear'
   end
 
   def display_board
-    puts "#{@_board[0]}, #{@_board[1]}, #{@_board[2]}"
+    puts "  #{@_board[0]}, #{@_board[1]}, #{@_board[2]}"
     puts separator = '-----------'
-    puts "#{@_board[3]}, #{@_board[4]}, #{@_board[5]}"
+    puts "  #{@_board[3]}, #{@_board[4]}, #{@_board[5]}"
     puts separator
-    puts "#{@_board[6]}, #{@_board[7]}, #{@_board[8]}"
+    puts "  #{@_board[6]}, #{@_board[7]}, #{@_board[8]}"
+    puts ''
   end
 
   def player_move(user_input)
@@ -91,8 +96,9 @@ class TicTacToe
     2.times do |item|
       puts 'Please enter names of players: '
       player_name = gets.chomp.strip
+      puts ''
 
-      until !player_name.empty?
+      while player_name.empty?
         puts 'Please enter a valid name'
         player_name = gets.strip.to_s
         break unless player_name.empty?
@@ -110,23 +116,22 @@ class TicTacToe
 
   def greeting
     puts "Today our players are: #{@name[0].name} and #{@name[1].name}"
+    puts ''
     sleep 1
     puts "#{@name[0].name} is going to play with 'X' symbol."
-
+    sleep 1
+    puts ''
     puts "#{@name[1].name} is going to play with 'O'symbol"
-    sleep 1
-    puts 'your game starts at:'
-    sleep 1
-    3.downto(0) { |number| puts number }
     sleep 1
   end
 
   def execute
     start
     instructions
-    display_board
+    system('clear')
     names_of_users
     greeting
+    puts ''
     turn until @game_over
   end
 end
@@ -134,12 +139,4 @@ end
 play_game = TicTacToe.new
 play_game.execute
 
-puts 'want to play again?'
-answer = gets.strip.downcase
-
-if answer == 'yes' || answer == 'y'
-  play_game = TicTacToe.new
-  play_game.execute
-else
-  puts '**I’m tired of Tic Tac Toes… -_- **'
-end
+puts '**I’m tired of Tic Tac Toes… -_- **'

@@ -11,8 +11,8 @@ class Helpers
     [0, 4, 8]
   ].freeze
 
-  def position_taken?(board, index) 
-    if board[index] == (board[index] == '') || (board[index] == ' ') || (board[index] == nil)
+  def position_taken?(board, index)
+    if board[index] == (board[index] == '') || (board[index] == ' ') || board[index].nil?
       false
     else
       true
@@ -35,7 +35,7 @@ class Helpers
     turn >= 9
   end
 
-  def game_over?(board, turn)
+  def game_over?(board, _turn)
     won?(board) || draw?(board)
   end
 end
