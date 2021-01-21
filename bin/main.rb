@@ -9,6 +9,7 @@ class TicTacToe
     @name = []
     @helper = Helpers.new
     @game_over = false
+    @counter = 0
   end
 
   def start
@@ -56,15 +57,14 @@ class TicTacToe
   end
 
   def turn_count
-    counter = 0
     if @_board.include?('X')
-      counter += 1
+      @counter += 1
     elsif @_board.include?('O')
-      counter += 1
+      @counter += 1
     else
-      counter
+      @counter
     end
-    counter
+    @counter
   end
 
   def turn
@@ -138,5 +138,5 @@ end
 
 play_game = TicTacToe.new
 play_game.execute
-
+sleep 1
 puts '**I’m tired of Tic Tac Toes… -_- **'

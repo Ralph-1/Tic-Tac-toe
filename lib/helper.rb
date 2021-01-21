@@ -31,11 +31,11 @@ class Helpers
     end
   end
 
-  def draw?(turn)
-    turn >= 9
+  def draw?(player_move)
+    player_move == 9
   end
 
-  def game_over?(board, _turn)
-    won?(board) || draw?(board)
+  def game_over?(board, turn_count)
+    won?(board) || draw?(turn_count)
   end
 end
